@@ -11,6 +11,9 @@ export class Task {
   id: string;
 
   @ApiProperty()
+  code: number;
+
+  @ApiProperty()
   name: string;
 
   @ApiProperty({ required: false })

@@ -12,6 +12,7 @@ import { Task } from './task.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
+import { TaskDto } from './dto/task.dto';
 
 @ApiTags('tasks')
 @Controller('tasks')
@@ -20,7 +21,7 @@ export class TasksController {
 
   @Get()
   @ApiResponse({ status: 200, type: Task, isArray: true })
-  findAll(): Task[] {
+  findAll(): TaskDto[] {
     return this.tasksService.findAll();
   }
 
@@ -30,18 +31,18 @@ export class TasksController {
     return this.tasksService.create(createTaskDto);
   }
 
-  @Delete(':id')
+  @Delete(':code')
   @ApiResponse({ status: 200 })
-  delete(@Param('id') id: string): void {
-    this.tasksService.delete(id);
+  delete(@Param('code') code: number): void {
+    this.tasksService.delete(code);
   }
 
-  @Patch(':id/status')
+  @Patch(':code/status')
   @ApiResponse({ status: 200, type: Task })
   updateStatus(
-    @Param('id') id: string,
+    @Param('code') code: number,
     @Body() updateStatusDto: UpdateStatusDto,
   ): Task {
-    return this.tasksService.updateStatus(id, updateStatusDto);
+    return this.tasksService.updateStatus(code, updateStatusDto);
   }
 }

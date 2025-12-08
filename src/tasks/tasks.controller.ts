@@ -8,7 +8,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
-import { Task } from './task.entity';
+import { Task, TaskStatus } from './task.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateStatusDto } from './dto/update-status.dto';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
@@ -44,5 +44,11 @@ export class TasksController {
     @Body() updateStatusDto: UpdateStatusDto,
   ): Task {
     return this.tasksService.updateStatus(code, updateStatusDto);
+  }
+
+  @Get(':status')
+  @ApiResponse({ status: 200, type: Task, isArray: true })
+  getByStatus(@Param('status') status: TaskStatus): TaskDto[] {
+    return this.tasksService.getByStatus(status);
   }
 }

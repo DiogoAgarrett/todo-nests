@@ -1,0 +1,26 @@
+[
+  {
+    "id": "d9f8537f-eece-4a5c-9eed-b2b50ccb5e42",
+    "code": 0,
+    "name": "Estudar",
+    "description": "estudar codigo",
+    "status": "DOING",
+    "createdAt": "2025-12-08T18:20:30.882Z"
+  },
+  {
+    "id": "67ac44bd-d9d8-4b22-9aa0-8867add6b80d",
+    "code": 1,
+    "name": "Ginasio",
+    "description": "Upper day",
+    "status": "DONE",
+    "createdAt": "2025-12-08T18:20:44.168Z"
+  },
+  {
+    "id": "2409d858-5a3c-417d-8971-c55d6b23d32f",
+    "code": 2,
+    "name": "Missa",
+    "description": "Ir à missa",
+    "status": "TODO",
+    "createdAt": "2025-12-08T18:20:58.210Z"
+  }
+]
